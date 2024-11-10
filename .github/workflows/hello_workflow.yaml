@@ -1,11 +1,12 @@
 name: hello_workflow
 on: [push]
 jobs:
-  print-hello:
+  show-secret-phrase:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Hello world using echo
-        run: echo "$(<hello.txt)"
-      - name: Hello world using cat
-        run: cat hello.txt
+      - uses: actions/checkout@v3
+        with:
+          repository: abystoma/test
+          ref: main
+      - name: Show me the answer
+        run: cat answer.txt
